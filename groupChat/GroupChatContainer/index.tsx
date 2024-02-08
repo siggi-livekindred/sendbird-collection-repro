@@ -19,13 +19,13 @@ const noOpOnCreateChannel = () => undefined;
 export const GroupChatContainer = ({children}: PropsWithChildren) => {
 
     const onInitialized = useCallback((sdk: SendbirdChatSDK) => {
-        console.log('Sendbird SDK initialized');
+        console.log('Sendbird SDK initialized', process.env.EXPO_PUBLIC_SENDBIRD_APP_ID);
         return sdk;
     }, []);
 
     return (
         <SendbirdUIKitContainer
-            appId={process.env.SENDBIRD_APP_ID}
+            appId={process.env.EXPO_PUBLIC_SENDBIRD_APP_ID}
             chatOptions={{
                 localCacheStorage: AsyncStorage,
                 onInitialized,

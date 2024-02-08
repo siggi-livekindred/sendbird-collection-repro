@@ -10,6 +10,9 @@ export const SignInScreen = () => {
 
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16, gap: 8}}>
+            <Text>App ID</Text>
+            <Text>{process.env.EXPO_PUBLIC_SENDBIRD_APP_ID}</Text>
+
             <Text>User ID</Text>
             <TextInput style={{width: '100%', borderWidth: 1}} value={userId} onChangeText={setUserId}/>
             <Text>Access Token</Text>
