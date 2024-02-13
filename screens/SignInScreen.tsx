@@ -1,18 +1,18 @@
 import {Pressable, Text, TextInput, View} from 'react-native';
-import {useConnection} from '@sendbird/uikit-react-native';
-import {useState} from "react";
+import {useContext} from "react";
+import {TokenContext} from "../Contexts";
+import {useNavigation} from "@react-navigation/native";
+
 
 export const SignInScreen = () => {
-    const {connect} = useConnection();
 
-    const [userId, setUserId] = useState('');
-    const [accessToken, setAccessToken] = useState('');
+    const navigation = useNavigation<any>();
+    const {userId, setUserId, accessToken, setAccessToken} = useContext(TokenContext);
 
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', padding: 16, gap: 8}}>
             <Text>App ID</Text>
             <Text>{process.env.EXPO_PUBLIC_SENDBIRD_APP_ID}</Text>
-
             <Text>User ID</Text>
             <TextInput style={{width: '100%', borderWidth: 1}} value={userId} onChangeText={setUserId}/>
             <Text>Access Token</Text>
@@ -25,9 +25,9 @@ export const SignInScreen = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}
-                onPress={() => connect(userId, {accessToken})}
+                onPress={() => navigation.navigate('DestinationSelector')}
             >
-                <Text>{'Sign in'}</Text>
+                <Text>{'Start'}</Text>
             </Pressable>
         </View>
     );

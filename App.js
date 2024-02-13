@@ -1,11 +1,14 @@
 import {StyleSheet} from 'react-native';
 import {GroupChatContainer} from "./groupChat/GroupChatContainer";
 import {Navigation} from "./Navigation";
+import {TokenContextProvider} from "./Contexts";
 
 export default function App() {
     return (
         <GroupChatContainer>
-            <Navigation/>
+            <TokenContextProvider>
+                <Navigation/>
+            </TokenContextProvider>
         </GroupChatContainer>
     );
 }

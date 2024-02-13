@@ -18,7 +18,7 @@ export const GroupChatDestinationSelector = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}
-                onPress={() => navigation.navigate('GroupChannelList')}
+                onPress={() => navigation.navigate('GroupChat', {screen: 'GroupChannelList'})}
             >
                 <Text>{'Channel List'}</Text>
             </Pressable>
@@ -33,7 +33,7 @@ export const GroupChatDestinationSelector = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                 }}
-                onPress={() => navigation.navigate('GroupChannel', {channelUrl})}
+                onPress={() => navigation.navigate('GroupChat', {screen: 'GroupChannel', params: {channelUrl}})}
             >
                 <Text>{'Open Channel'}</Text>
             </Pressable>
