@@ -1,10 +1,10 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SignInScreen} from "./screens/SignInScreen";
-import {GroupChannelListScreen} from "./screens/GroupChannelListScreen";
 import {GroupChannelScreen} from "./screens/GroupChannelScreen";
 import {GroupChatDestinationSelector} from "./screens/GroupChatDestinationSelector";
 import {SendbirdConnection} from "./groupChat/SendbirdConnection";
+import {GroupChannelListScreenV2} from "./screens/GroupChannelListScreenV2";
 
 const RootStack = createStackNavigator();
 export const Navigation = () => {
@@ -24,7 +24,7 @@ export const GroupChatNavigation = () => {
     return (
         <SendbirdConnection>
             <GroupChatStack.Navigator>
-                <GroupChatStack.Screen name={'GroupChannelList'} component={GroupChannelListScreen}/>
+                <GroupChatStack.Screen name={'GroupChannelList'} component={GroupChannelListScreenV2}/>
                 <GroupChatStack.Screen name={'GroupChannel'} component={GroupChannelScreen}/>
             </GroupChatStack.Navigator>
         </SendbirdConnection>
